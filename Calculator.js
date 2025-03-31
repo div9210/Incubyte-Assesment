@@ -1,4 +1,4 @@
-// Requirement 5 : Handle Negative Numbers
+// Requirement 6 : Handle Negative Numbers + Ignore Numbers Greater than 1000
 
 
 function add(numbers) {
@@ -21,16 +21,18 @@ function add(numbers) {
     if (negatives.length > 0) {
         throw new Error(`negative numbers not allowed ${negatives.join(",")}`);
     }
-    return numArray.reduce((sum, num) => sum + num, 0);
+    return numArray.filter(el => el <= 1000).reduce((sum, num) => sum + num, 0);
 }
 
 // Test cases
-function runTests() {
+function runTests(testCase) {
     try {
         console.log(add("1,2,3,4,5")); // 15
         console.log(add("1\n2,3")); // 6
-        console.log(add("//;\n1;2"));
-        console.log(add("1,-2,3,-4"));
+        console.log(add("//;\n1;2")); // 3
+        console.log(add("2,1001")); // 2 (Ignore 1001)
+
+        console.log(add("1,-2,3,-4")); // Exception
     } catch (error) {
         console.log("Exception:", error.message);
     }
