@@ -1,4 +1,6 @@
-// Requirement 1 : Handle Empty String and Basic Input (0, 1, or 2 numbers)
+// Requirement 2 : Handle Unknown Amount of Numbers
+
+// Note : The same function is fully capable to handle multiple comma seperated args
 
 function add(numbers) {
     if (!numbers) return 0;
@@ -8,6 +10,4 @@ function add(numbers) {
 }
 
 // Test cases
-console.log(add(""));     // 0
-console.log(add("1"));    // 1
-console.log(add("1,2"));  // 3
+console.log(add("1,2,3,4,5")); // 15
